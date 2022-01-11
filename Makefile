@@ -29,3 +29,6 @@ build: FORCE build_number
 
 deploy-tests: FORCE
 	kubectl apply -f tests.yaml
+
+undeploy-tests: FORCE
+	kubectl delete --ignore-not-found -f tests.yaml

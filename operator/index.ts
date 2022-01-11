@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import asyncHandler from 'express-async-handler'
 
 import test from './test';
+import related from './related';
 
 const app = express();
 
@@ -18,6 +19,10 @@ app.get('/', asyncHandler(async (request: Request, response: Response, next: Nex
 app.post('/tests-sync', asyncHandler(test.sync));
 app.post('/tests-customize', asyncHandler(test.customize));
 app.post('/tests-finalize', asyncHandler(test.finalize));
+
+app.post('/relatedes-sync', asyncHandler(related.sync));
+app.post('/relatedes-customize', asyncHandler(related.customize));
+app.post('/relatedes-finalize', asyncHandler(related.finalize));
 
 app.use((err, req, res, next) => {
   console.error("Unhandled Exception:", err);

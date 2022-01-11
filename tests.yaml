@@ -4,4 +4,12 @@ metadata:
   name: test1
   namespace: test1
 spec:
+  prop: "related1"
+---
+apiVersion: test.io/v1
+kind: Related
+metadata:
+  name: related1
+  namespace: test1
+spec:
   prop: ""

@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 
 export default {
   async sync(request: Request, response: Response, next: NextFunction) {
-    console.log("test sync req", JSON.stringify(request.body));
+    console.log("related sync req", JSON.stringify(request.body));
 
     var res = {
       "annotations": {
@@ -10,24 +10,23 @@ export default {
       },
     };
 
-    console.log("test sync res", JSON.stringify(res));
+    console.log("related sync res", JSON.stringify(res));
     response.status(200).json(res);
   },
 
   async customize(request: Request, response: Response, next: NextFunction) {
-    console.log("test customize req", JSON.stringify(request.body));
+    console.log("related customize req", JSON.stringify(request.body));
 
     var res = {
       "relatedResources": []
     };
 
-
-    console.log("test customize res", JSON.stringify(res));
+    console.log("related customize res", JSON.stringify(res));
     response.status(200).json(res);
   },
 
   async finalize(request: Request, response: Response, next: NextFunction) {
-    console.log("test finalize req", JSON.stringify(request.body));
+    console.log("related finalize req", JSON.stringify(request.body));
 
     var res = {
       "annotations": {},
@@ -35,7 +34,7 @@ export default {
       "finalized": true,
     }
 
-    console.log("test finalize res", JSON.stringify(res));
+    console.log("related finalize res", JSON.stringify(res));
     response.status(200).json(res);
   }
 }
