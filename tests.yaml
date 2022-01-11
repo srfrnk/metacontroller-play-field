@@ -1,0 +1,7 @@
+apiVersion: test.io/v1
+kind: Test
+metadata:
+  name: test1
+  namespace: test1
+spec:
+  prop: ""
