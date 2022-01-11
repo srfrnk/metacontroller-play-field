@@ -18,7 +18,14 @@ export default {
     console.log("test customize req", JSON.stringify(request.body));
 
     var res = {
-      "relatedResources": []
+      "relatedResources": [
+        {
+          "apiVersion": "test.io/v1",
+          "resource": "relatedes",
+          "namespace": request.body.parent.metadata.namespace,
+          "names": [request.body.parent.spec.prop]
+        }
+      ]
     };
 
 

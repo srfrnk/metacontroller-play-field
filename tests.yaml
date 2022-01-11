@@ -7,9 +7,9 @@ spec:
   prop: "related1"
 ---
 apiVersion: test.io/v1
-kind: Related
+kind: Test
 metadata:
-  name: related1
-  namespace: test1
+  name: test1
+  namespace: test2
 spec:
-  prop: ""
+  prop: "related1"
