@@ -1,8 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
+import { debugNamespace, debugName } from './misc';
 
 export default {
   async sync(request: Request, response: Response, next: NextFunction) {
-    console.log("test sync req", JSON.stringify(request.body));
+    console.log(`test sync req (${debugNamespace(request)}:${debugName(request)})`, JSON.stringify(request.body));
 
     var res = {
       "annotations": {
@@ -10,12 +11,12 @@ export default {
       },
     };
 
-    console.log("test sync res", JSON.stringify(res));
+    console.log(`test sync res (${debugNamespace(request)}:${debugName(request)})`, JSON.stringify(res));
     response.status(200).json(res);
   },
 
   async customize(request: Request, response: Response, next: NextFunction) {
-    console.log("test customize req", JSON.stringify(request.body));
+    console.log(`test customize req (${debugNamespace(request)}:${debugName(request)})`, JSON.stringify(request.body));
 
     var res = {
       "relatedResources": [
@@ -29,12 +30,12 @@ export default {
     };
 
 
-    console.log("test customize res", JSON.stringify(res));
+    console.log(`test customize res (${debugNamespace(request)}:${debugName(request)})`, JSON.stringify(res));
     response.status(200).json(res);
   },
 
   async finalize(request: Request, response: Response, next: NextFunction) {
-    console.log("test finalize req", JSON.stringify(request.body));
+    console.log(`test finalize req (${debugNamespace(request)}:${debugName(request)})`, JSON.stringify(request.body));
 
     var res = {
       "annotations": {},
@@ -42,7 +43,7 @@ export default {
       "finalized": true,
     }
 
-    console.log("test finalize res", JSON.stringify(res));
+    console.log(`test finalize res (${debugNamespace(request)}:${debugName(request)})`, JSON.stringify(res));
     response.status(200).json(res);
   }
 }
